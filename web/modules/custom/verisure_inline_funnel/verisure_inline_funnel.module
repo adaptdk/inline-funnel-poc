@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Module file for verisure_inline_funnel.
+ */
+
+define('VERISURE_INLINE_FUNNEL_LIBRARY_PATH', '/libraries/verisure-inline-funnel');
+
+/**
+ * Implements hook_library_info_build().
+ *
+ * @return array
+ */
+function verisure_inline_funnel_library_info_build() {
+
+  $library = [];
+
+  foreach (verisure_inline_funnel_get_asset_paths() as $type => $path) {
+    if ($type === 'service-worker.js') {
+      continue;
+    }
+
+    switch (pathinfo($path, PATHINFO_EXTENSION)) {
+      case 'js':
+        $library['js'][$path] = [];
+        break;
+
+      case 'css':
+        $library['css']['base'][$path] = [];
+        break;
+    }
+  }
+
+  return $library ? ['verisure-inline-funnel' => $library] : [];
+}
+
+/**
+ * @return array
+ */
+function verisure_inline_funnel_get_asset_paths(): array {
+  $manifest_path = sprintf(
+    '%s/asset-manifest.json',
+    verisure_inline_funnel_path_to_library()
+  );
+
+  if ($manifest = json_decode(file_get_contents($manifest_path), TRUE)) {
+    return $manifest;
+  }
+
+  return [];
+}
+
+/**
+ * @return string
+ */
+function verisure_inline_funnel_path_to_library(): string {
+  return DRUPAL_ROOT . VERISURE_INLINE_FUNNEL_LIBRARY_PATH;
+}

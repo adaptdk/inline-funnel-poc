@@ -1,0 +1,8 @@
+name: Verisure Funnel
+description: View a Verisure Funnel
+package: Adaptdk
+dependencies:
+  - drupal:block
+
+type: module
+core: 8.x

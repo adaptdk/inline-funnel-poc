@@ -12,13 +12,32 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "adaptdk/verisure-inline-funnel",
+                "version": "0.2.10",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/adaptdk/verisure-inline-funnel-pkg/releases/download/0.2.10/verisure-inline-funnel-pkg-0.2.10.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "git@github.com:adaptdk/verisure-funnels.git",
+                    "type": "git",
+                    "reference": "dev-master"
+                }
+            }
         }
     ],
     "require": {
+        "adaptdk/verisure-inline-funnel ": "0.2.10",
         "composer/installers": "^1.2",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
-        "drupal/core-recommended": "^8.8"
+        "drupal/core-recommended": "^8.8",
+        "ext-json": "*"
     },
     "conflict": {
         "drupal/drupal": "*"
