@@ -9,7 +9,7 @@ use Drupal\Core\Block\BlockBase;
  *
  * @Block(
  *   id = "verisure_inline_funnel",
- *   admin_label = @Translation("danmark-testen")
+ *   admin_label = @Translation("Verisure Inline Funnel")
  * )
  */
 class VerisureInlineFunnelBlock extends BlockBase {
@@ -21,7 +21,7 @@ class VerisureInlineFunnelBlock extends BlockBase {
     return [
       '#markup' => '<div id="funnel"></div>',
       '#attached' => [
-        'library' => 'adaptdk/verisure-inline-funnel'
+        'library' => 'verisure_inline_funnel/funnel'
       ],
     ];
   }

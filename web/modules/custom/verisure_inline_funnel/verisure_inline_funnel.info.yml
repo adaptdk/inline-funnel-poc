@@ -1,6 +1,5 @@
 name: Verisure Funnel
 description: View a Verisure Funnel
-package: Adaptdk
 dependencies:
   - drupal:block
 

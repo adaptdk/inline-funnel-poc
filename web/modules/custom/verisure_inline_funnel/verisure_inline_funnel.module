@@ -12,27 +12,35 @@ define('VERISURE_INLINE_FUNNEL_LIBRARY_PATH', '/libraries/verisure-inline-funnel
  *
  * @return array
  */
-function verisure_inline_funnel_library_info_build() {
+function verisure_inline_funnel_library_info_build(): array {
 
   $library = [];
 
-  foreach (verisure_inline_funnel_get_asset_paths() as $type => $path) {
-    if ($type === 'service-worker.js') {
-      continue;
+    $paths = verisure_inline_funnel_get_asset_paths();
+    if (!array_key_exists('entrypoints', $paths)) {
+        \Drupal::logger('verisure_inline_funnel')->warning('Could not parse assets file');
+        return $library;
     }
 
-    switch (pathinfo($path, PATHINFO_EXTENSION)) {
-      case 'js':
-        $library['js'][$path] = [];
-        break;
+    foreach ($paths['entrypoints'] as $type => $path) {
+      if ($type === 'service-worker.js') {
+        continue;
+      }
 
-      case 'css':
-        $library['css']['base'][$path] = [];
-        break;
-    }
+      $asset_path = sprintf('%s/%s', VERISURE_INLINE_FUNNEL_LIBRARY_PATH, $path);
+
+      switch (pathinfo($asset_path, PATHINFO_EXTENSION)) {
+        case 'js':
+          $library['js'][$asset_path] = [];
+          break;
+
+        case 'css':
+          $library['css']['base'][$asset_path] = [];
+          break;
+      }
   }
 
-  return $library ? ['verisure-inline-funnel' => $library] : [];
+  return $library ? ['funnel' => $library] : [];
 }
 
 /**
