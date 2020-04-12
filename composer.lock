@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fdd2deb42a1731ee7f26839c0d2a7972",
+    "content-hash": "90f0d2fae659dd5a5b00dd116a5ca558",
     "packages": [
         {
             "name": "adaptdk/verisure-inline-funnel",
-            "version": "0.2.10",
+            "version": "0.2.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:adaptdk/verisure-funnels.git",
@@ -16,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/adaptdk/verisure-inline-funnel-pkg/releases/download/0.2.10/verisure-inline-funnel-pkg-0.2.10.zip",
+                "url": "https://github.com/adaptdk/verisure-inline-funnel-pkg/releases/download/0.2.14/verisure-inline-funnel-pkg-0.2.14.zip",
                 "reference": "dev-master"
             },
             "type": "drupal-library"
