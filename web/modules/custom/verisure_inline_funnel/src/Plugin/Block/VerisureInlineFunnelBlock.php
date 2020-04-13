@@ -21,7 +21,10 @@ class VerisureInlineFunnelBlock extends BlockBase {
     return [
       '#markup' => '<div id="funnel"></div>',
       '#attached' => [
-        'library' => 'verisure_inline_funnel/funnel'
+        'library' => [
+            'verisure_inline_funnel/funnel-app',
+            'verisure_inline_funnel/funnel-style'
+        ]
       ],
     ];
   }

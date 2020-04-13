@@ -290,9 +290,7 @@ function drupal_get_filename($type, $name, $filename = NULL) {
   catch (\InvalidArgumentException $e) {
     // Catch the exception. This will result in triggering an error.
     // If the filename is still unknown, create a user-level error message.
-      \Drupal::logger('verisure_inline_funnel')->debug(json_encode(get_defined_vars(), JSON_PRETTY_PRINT));
-
-      trigger_error(
+    trigger_error(
       sprintf('The following %s is missing from the file system: %s', $type, $name),
       E_USER_WARNING
     );

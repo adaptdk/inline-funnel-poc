@@ -1,0 +1,5 @@
+funnel-style:
+  version: 1.x
+  css:
+    theme:
+      css/verisure-inline-funnel.css: {}
